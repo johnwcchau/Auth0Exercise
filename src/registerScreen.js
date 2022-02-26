@@ -38,6 +38,9 @@ export default class RegisterScreen extends Component {
         }
     }
 
+    onCancel() {
+        this.navigation.goBack();
+    }
     onRegister() {
         routines.onRegister(this, this.state.email, this.state.pass);
     }
@@ -81,6 +84,9 @@ export default class RegisterScreen extends Component {
                 <View style={styles.row}>
                     <View style={{padding: 8, minWidth: 128}}>
                         <Button disabled={this.state.notReady} onPress={() => this.onRegister()} title='Register' />
+                    </View>
+                    <View style={{padding: 8, minWidth: 128}}>
+                        <Button onPress={() => this.onCancel()} title='Cancel' />
                     </View>
                 </View>
             </SafeAreaView>
